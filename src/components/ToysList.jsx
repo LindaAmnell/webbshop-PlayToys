@@ -1,28 +1,37 @@
 import { getToys } from "../data/crud.js";
-// import { useState } from "react";
 import { useStore } from "../data/store.js";
+import cart from "../img/cart.png";
+import { NavLink } from "react-router-dom";
 
 const ToysList = () => {
-  const { toys, setToys, addToyToCheckout, CheckoutList } = useStore(
-    (state) => ({
+  const { toys, setToys, addToyToCheckout, checkoutList, countTotalCheckout } =
+    useStore((state) => ({
       toys: state.toys,
       setToys: state.setToys,
       addToyToCheckout: state.addToyToCheckout,
-      CheckoutList: state.CheckoutList,
-    })
-  );
+      checkoutList: state.checkoutList,
+      countTotalCheckout: state.countTotalCheckout,
+    }));
 
   const handeleGetToys = async () => {
     setToys(await getToys());
   };
-  console.log("Checkout list content:", CheckoutList);
+  console.log("Checkout list content:", checkoutList);
 
   return (
     <main className="toys-meny">
+      <NavLink to="/Chekout">
+        <img
+          onClick={countTotalCheckout}
+          className="cart-icon"
+          src={cart}
+          alt="cartchekout"
+        />
+      </NavLink>
       <h2>Leksaker</h2>
 
       <button onClick={handeleGetToys}>gettoys</button>
-      {toys.map((t) => (
+      {toys.map((t, item) => (
         <section className="toys-section" key={t.key}>
           <img className="toys-img" src={t.img} alt="bild" />
           <h4 className="toys-name">{t.name}</h4>

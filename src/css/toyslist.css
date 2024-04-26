@@ -1,6 +1,7 @@
 .toys-meny {
   display: grid;
   place-items: center;
+  grid-template-columns: 1fr;
   /* font-family: "Indie Flower", cursive;
   font-weight: 400;
   font-style: normal; */
@@ -10,17 +11,22 @@ h2 {
   font-weight: 400;
   font-style: normal;
 }
-
+.cart-icon {
+  width: 45px;
+  position: absolute;
+  top: 11.5%;
+  right: 6%;
+}
 .toys-section {
   background-color: #ffffff;
   /* border: 1px solid #b1d8ee; */
-  border-radius: 3em;
+  border-radius: 2em;
   margin: 1em;
   padding: 1em 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  min-width: 1em;
   box-shadow: 0px 5px 16px rgba(1, 1, 3, 0.6);
 }
 .toys-img {
@@ -48,12 +54,13 @@ h2 {
 .add-btn {
   height: 2em;
   background-color: #b1d8ee;
-  border-radius: 3em;
+  border-radius: 2em;
   border: 1px solid #5ba9d6;
   font-family: "Neucha", cursive;
   font-weight: 500;
   font-style: normal;
   transition: background-color 0.3s;
+  padding: 0 0.7em;
 }
 .add-btn:hover {
   cursor: pointer;

@@ -1,0 +1,76 @@
+.checkout-section {
+  display: flex;
+  flex-direction: column;
+  font-family: "Neucha", cursive;
+  font-weight: 500;
+  font-style: normal;
+}
+.arrow {
+  width: 40px;
+  position: absolute;
+  top: 11.5%;
+  left: 8%;
+}
+h2 {
+  align-self: center;
+  /* margin-top: 1.5em; */
+}
+.h2-cart {
+  margin: 1em;
+}
+.checkout-div {
+  background-color: #d2e8f8;
+  padding: 1.5em;
+  border-radius: 2em;
+  /* margin-top: 2em; */
+  /* display: flex; */
+}
+.toy-name-delet-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout-toy-card {
+  background-color: white;
+  margin: 0 0 1.5em 0;
+  display: flex;
+  padding: 1em 1.5em;
+  flex-direction: column;
+  border-radius: 2em;
+  box-shadow: 0px 5px 10px rgba(1, 1, 3, 0.4);
+}
+.info-toy {
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: baseline;
+  gap: 0.5em;
+}
+.checkout-img {
+  height: 60px;
+}
+.delete-btn {
+  background-color: white;
+  border: none;
+}
+.buy-btn {
+  width: 5em;
+  align-self: center;
+  margin-top: 1em;
+  /* height: 2em; */
+  background-color: #75c5f4;
+  border-radius: 2em;
+  border: 1px solid #5ba9d6;
+  font-family: "Neucha", cursive;
+  font-weight: 500;
+  font-style: normal;
+  transition: background-color 0.3s;
+  padding: 0.4em 1em;
+}
+.buy-btn:hover {
+  cursor: pointer;
+  background-color: #5ba9d6;
+}
+.total-price {
+  display: grid;
+  place-items: center;
+}

@@ -3,15 +3,60 @@ import { create } from "zustand";
 const useStore = create((set) => ({
   toys: [],
   setToys: (newToys) => set({ toys: newToys }),
-  CheckoutList: [],
+  checkoutList: [],
+  checkoutTotal: 0,
 
-  addToyToCheckout: (toy) =>
+  addToyToCheckout: (item) =>
     set((state) => {
-      const checkoutToy = state.toys.find((t) => t.key === toy.key);
-      console.log("Adding toy to checkout:", checkoutToy); // Loggar det aktuella leksaket som läggs till i kassan
+      let found = false;
+      let updatedList = state.checkoutList.map((checkToy) => {
+        if (checkToy.name === item.name) {
+          found = true;
+          return { ...checkToy, quantity: checkToy.quantity + 1 };
+        }
+        return checkToy;
+      });
 
-      return { CheckoutList: [...state.CheckoutList, checkoutToy] };
+      if (!found) {
+        const checkoutToy = state.toys.find((t) => t.name === item.name);
+        if (checkoutToy) {
+          updatedList = [...updatedList, { ...checkoutToy, quantity: 1 }];
+        }
+      }
+
+      return { checkoutList: updatedList };
     }),
+
+  deleteFromCheckout: (key) => {
+    set((state) => {
+      const updatedCheckoutList = state.checkoutList
+        .map((item) => {
+          if (item.key === key && item.quantity > 1) {
+            return { ...item, quantity: item.quantity - 1 };
+          } else if (item.key === key && item.quantity === 1) {
+            return null;
+          }
+          return item;
+        })
+        .filter((item) => item !== null);
+      return { checkoutList: updatedCheckoutList };
+    });
+    useStore.getState().countTotalCheckout();
+  },
+
+  countTotalCheckout: () => {
+    set((state) => ({
+      checkoutTotal: state.checkoutList.reduce(
+        (total, item) => total + parseInt(item.price) * item.quantity,
+        0
+      ),
+    }));
+  },
+  deleteChekoutList: () =>
+    set((state) => ({
+      checkoutList: [],
+      checkoutTotal: 0,
+    })),
 }));
 
 export { useStore };
