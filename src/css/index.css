@@ -1,0 +1,23 @@
+body {
+  background-color: #b1d8ee;
+}
+.logga {
+  width: 20%;
+}
+header {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  align-items: center;
+}
+h1 {
+  color: black;
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 45px;
+  margin: 0em;
+}
+.hedar-text {
+  text-decoration: none;
+}

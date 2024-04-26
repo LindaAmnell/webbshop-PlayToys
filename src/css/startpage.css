@@ -1,0 +1,23 @@
+.img-start-section {
+  display: grid;
+  place-items: center;
+}
+
+.img-start {
+  width: 80%;
+}
+
+.link {
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+  background-color: #c0d3e0;
+  padding: 0.4em;
+  border: solid 1px #1d303d;
+  border-radius: 1em;
+  text-align: center;
+}
+.link-toys {
+  text-decoration: none;
+  color: black;
+}
