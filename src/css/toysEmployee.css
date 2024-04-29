@@ -1,0 +1,17 @@
+.add-toy-section {
+  display: grid;
+  place-items: center;
+  gap: 0.5em;
+  background-color: #d2e8f8;
+  padding: 1em;
+  border-radius: 2em;
+  min-width: 14em;
+  margin: 1em;
+}
+.add-toy {
+  display: flex;
+  flex-direction: column;
+}
+.add-toy > input {
+  border-radius: 1em;
+}

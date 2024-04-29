@@ -7,9 +7,14 @@ import pool from "../img/play.poolanimal.jpg";
 const StartPage = () => {
   return (
     <main>
+      <h2 className="link">
+        <NavLink className="link-toys" to="/toymeny">
+          Leksaker
+        </NavLink>
+      </h2>
       <section className="img-start-section">
         <h2>Katigorier</h2>
-        <div className="img-div">
+        {/* <div className="img-div">
           <h3>Hinkset</h3>
           <img className="start-img" src={pingvin} alt="" />
         </div>
@@ -20,12 +25,7 @@ const StartPage = () => {
         <div className="img-div">
           <h3>Pooler</h3>
           <img className="start-img" src={pool} alt="" />
-        </div>
-        <h2 className="link">
-          <NavLink className="link-toys" to="/toymeny">
-            Leksaker
-          </NavLink>
-        </h2>
+        </div> */}
       </section>
     </main>
   );

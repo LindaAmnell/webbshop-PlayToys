@@ -21,3 +21,10 @@ h1 {
 .hedar-text {
   text-decoration: none;
 }
+footer {
+  display: flex;
+  justify-content: center;
+}
+.login-icon {
+  width: 40px;
+}

@@ -1,14 +1,29 @@
 import { useStore } from "../data/store.js";
 import { NavLink } from "react-router-dom";
 import arrow from "../img/back.png";
+
 const CheckoutPage = () => {
-  const { checkoutList, deleteFromCheckout, checkoutTotal, deleteChekoutList } =
-    useStore((state) => ({
-      checkoutList: state.checkoutList,
-      deleteFromCheckout: state.deleteFromCheckout,
-      checkoutTotal: state.checkoutTotal,
-      deleteChekoutList: state.deleteChekoutList,
-    }));
+  const {
+    checkoutList,
+    deleteFromCheckout,
+    checkoutTotal,
+    deleteChekoutList,
+    addToyToCheckout,
+    countTotalCheckout,
+    deleteThatToyFromList,
+  } = useStore((state) => ({
+    checkoutList: state.checkoutList,
+    deleteFromCheckout: state.deleteFromCheckout,
+    checkoutTotal: state.checkoutTotal,
+    deleteChekoutList: state.deleteChekoutList,
+    addToyToCheckout: state.addToyToCheckout,
+    countTotalCheckout: state.countTotalCheckout,
+    deleteThatToyFromList: state.deleteThatToyFromList,
+  }));
+  const handelPlusOne = (item) => {
+    addToyToCheckout(item);
+    countTotalCheckout();
+  };
 
   return (
     <section className="checkout-section">
@@ -22,15 +37,19 @@ const CheckoutPage = () => {
             <div className="toy-name-delet-btn">
               <p className="checkout-toy-name">{item.name}</p>
               <button
-                onClick={() => deleteFromCheckout(item.key)}
+                onClick={() => deleteThatToyFromList(item, item.key)}
                 className="delete-btn">
                 🗑️
               </button>
             </div>
             <div className="info-toy">
-              <img className="checkout-img" src={item.img} alt="" />{" "}
-              <p>{item.price}kr</p> <button>-</button> <p>{item.quantity}</p>
-              <button>+</button>
+              <div className="img-checkout-div">
+                <img className="checkout-img" src={item.img} alt="" />{" "}
+              </div>
+              <p>{item.price}kr</p>{" "}
+              <button onClick={() => deleteFromCheckout(item.key)}>-</button>{" "}
+              <p>{item.quantity}</p>
+              <button onClick={() => handelPlusOne(item)}>+</button>
             </div>
           </div>
         ))}

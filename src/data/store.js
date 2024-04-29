@@ -57,6 +57,16 @@ const useStore = create((set) => ({
       checkoutList: [],
       checkoutTotal: 0,
     })),
+
+  deleteThatToyFromList: (item, key) => {
+    set((state) => {
+      const updatedCheckoutList = state.checkoutList.filter(
+        (checkoutItem) => checkoutItem.key !== key
+      );
+      return { checkoutList: updatedCheckoutList };
+    });
+    useStore.getState().countTotalCheckout();
+  },
 }));
 
 export { useStore };
