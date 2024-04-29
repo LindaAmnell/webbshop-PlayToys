@@ -10,14 +10,21 @@ const ToysEmployee = (toy) => {
     setToys: state.setToys,
   }));
 
-  const handleDeleteToy = async () => {
-    await deleteToy(toy.key);
+  const handleDeleteToy = async (key) => {
+    if (!key) {
+      return;
+    }
+    await deleteToy(key);
     const toysFromDb = await getToys();
     setToys(toysFromDb);
   };
-  const handelAddToy = () => {
+  const handleShowAddToy = () => {
     setShowAddToy(!showAddToy);
   };
+  const handleAddToySave = () => {
+    setShowAddToy(false);
+  };
+
   useEffect(() => {
     const fetchToys = async () => {
       const fetchedToys = await getToys();
@@ -27,23 +34,32 @@ const ToysEmployee = (toy) => {
   }, []);
 
   return (
-    <main>
+    <main className="employe-toys-section">
       <h2>Leksaker</h2>
       <div className="add-toy-div">
-        {showAddToy && <AddToy />}
-        <button onClick={handelAddToy}>Lägg till leksak</button>
+        {showAddToy && (
+          <AddToy
+            onAddSuccess={handleAddToySave}
+            onClose={() => setShowAddToy(false)}
+          />
+        )}
+        {!showAddToy && (
+          <button onClick={handleShowAddToy}>Lägg till leksak</button>
+        )}
       </div>
-      {toys.map((t, item) => (
-        <section className="toys-section" key={t.key}>
-          <img className="toys-img" src={t.img} alt="bild" />
-          <h4 className="toys-name">{t.name}</h4>
-          <div className="toys-info">
-            <p className="toys-price">{t.price} kr</p>
-            <button onClick={handleDeleteToy}>Tabort</button>
-            <button>Ändra</button>
-          </div>
-        </section>
-      ))}
+      <section className="toy-grid">
+        {toys.map((t, item) => (
+          <section className="toys-section" key={t.key}>
+            <img className="toys-img" src={t.img} alt="bild" />
+            <h4 className="toys-name">{t.name}</h4>
+            <div className="toys-info">
+              <p className="toys-price">{t.price} kr</p>
+              <button onClick={() => handleDeleteToy(t.key)}>Tabort</button>
+              <button>Ändra</button>
+            </div>
+          </section>
+        ))}
+      </section>
     </main>
   );
 };

@@ -1,3 +1,11 @@
+.employe-toys-section {
+  display: grid;
+  place-items: center;
+}
+.toy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 .add-toy-section {
   display: grid;
   place-items: center;
@@ -8,10 +16,21 @@
   min-width: 14em;
   margin: 1em;
 }
+.toys-section {
+  padding: 1em;
+  max-width: 10em;
+}
 .add-toy {
   display: flex;
   flex-direction: column;
 }
 .add-toy > input {
   border-radius: 1em;
+}
+.back-arrow {
+  width: 30px;
+}
+.close-btn {
+  border: none;
+  background-color: transparent;
 }

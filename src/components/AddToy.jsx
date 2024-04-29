@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useStore } from "../data/store.js";
 import { addToy, getToys } from "../data/crud.js";
-const AddToy = () => {
+import close from "../img/cross.icon.png";
+const AddToy = ({ onAddSuccess, onClose }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState("");
   const [img, setImg] = useState("");
@@ -19,6 +20,7 @@ const AddToy = () => {
       setPrice("");
       setType("");
       setToys(await getToys());
+      onAddSuccess();
     } catch {
     } finally {
       setIsLoading(false);
@@ -26,6 +28,9 @@ const AddToy = () => {
   };
   return (
     <section className="add-toy-section">
+      <button onClick={onClose} className="close-btn">
+        <img className="back-arrow" src={close} alt="" />
+      </button>
       <div className="add-toy">
         <label>Namn:</label>
         <input
