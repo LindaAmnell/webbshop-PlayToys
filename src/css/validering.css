@@ -9,3 +9,13 @@
   margin: 0;
   visibility: hidden;
 }
+.error-user {
+  visibility: visible;
+  color: rgb(220, 24, 24);
+  margin: 0em;
+}
+
+.correct-login {
+  visibility: hidden;
+  margin: 0em;
+}

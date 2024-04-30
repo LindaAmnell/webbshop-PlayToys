@@ -1,22 +1,45 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const checkLogin = () => {
-    if (user !== "admin" || password !== "password") {
-      setErrorMessage("Fel användarnamn eller lösenord.");
-      return false;
+  const [userError, setUserError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const navigate = useNavigate();
+
+  const error = "Vänligen fyll i användarnamn";
+  const errorPass = "Vänligen fyll i lösenord";
+  const validateUser = () => {
+    if (!user) {
+      setUserError(error);
+    } else {
+      setUserError("");
     }
-    return true;
+  };
+
+  const validatePassword = () => {
+    if (!password) {
+      setPasswordError(errorPass);
+    } else {
+      setPasswordError("");
+    }
+  };
+
+  const checkLogin = () => {
+    return user == "admin" && password == "password";
   };
   const handleLogIn = () => {
-    if (checkLogin()) {
-      console.log("Inloggning lyckades!");
+    validateUser();
+    validatePassword();
+    if (user && password) {
+      if (checkLogin()) {
+        navigate("/toyEmployee");
+      } else {
+      }
     }
   };
+
   return (
     <section className="login-section">
       <div className="login-div">
@@ -25,22 +48,29 @@ const LogIn = () => {
           <input
             type="text"
             value={user}
+            onBlur={validateUser}
             onChange={(event) => setUser(event.target.value)}
           />
+          <p className={userError ? "error-user" : "correct-login"}>
+            {userError}
+          </p>
         </div>
         <div className="login-form">
           <label> Lösenord: </label>
           <input
             type="password"
             value={password}
+            onBlur={validatePassword}
             onChange={(event) => setPassword(event.target.value)}
           />
+          <p className={passwordError ? "error-user" : "correct-login"}>
+            {passwordError}
+          </p>
         </div>
-        <NavLink to="/toyEmployee">
-          <button className="login-btn" onClick={handleLogIn}>
-            Logga in
-          </button>
-        </NavLink>
+
+        <button className="login-btn" onClick={handleLogIn}>
+          Logga in
+        </button>
       </div>
     </section>
   );
