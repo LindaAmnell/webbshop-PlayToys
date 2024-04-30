@@ -1,0 +1,56 @@
+.change-Info {
+  display: grid;
+  place-items: center;
+  background-color: #d2e8f8;
+  padding: 6em;
+  border-radius: 2em;
+  border: solid 2px #5ba9d6;
+  margin: 1em;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.close-btn-change {
+  background-color: #b1d8ee;
+  border-radius: 2em;
+  border: 1px solid #5ba9d6;
+  transition: background-color 0.3s;
+  padding: 0.6em 1.2em;
+  margin-top: 1em;
+  font-family: "Neucha", cursive;
+  font-weight: 500;
+  font-style: normal;
+  width: 10em;
+}
+.close-btn-change:hover {
+  cursor: pointer;
+  background-color: #5ba9d6;
+}
+.change {
+  display: flex;
+  flex-direction: column;
+}
+.change > input {
+  border-radius: 0.7em;
+  padding: 0.6em;
+  font-family: "Neucha", cursive;
+  width: 15em;
+}
+
+.save-btn {
+  background-color: #b1d8ee;
+  border-radius: 2em;
+  border: 1px solid #5ba9d6;
+  transition: background-color 0.3s;
+  padding: 0.6em 1.2em;
+  font-family: "Neucha", cursive;
+  font-weight: 500;
+  font-style: normal;
+  width: 10em;
+}
+.save-btn:hover {
+  cursor: pointer;
+  background-color: #5ba9d6;
+}

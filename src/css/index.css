@@ -28,3 +28,31 @@ footer {
 .login-icon {
   width: 40px;
 }
+@media (min-width: 400px) {
+  .logga {
+    width: 14%;
+  }
+  h1 {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 600px) {
+  .logga {
+    width: 10%;
+  }
+  h1 {
+    font-size: 60px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .logga {
+    width: 9%;
+  }
+}
+@media (min-width: 1500px) {
+  .logga {
+    width: 7%;
+  }
+}

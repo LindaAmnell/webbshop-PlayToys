@@ -58,10 +58,10 @@ const CheckoutPage = () => {
         ) : (
           <p className="total-price"> Totalsumma: {checkoutTotal} kr</p>
         )}
+        <button onClick={deleteChekoutList} className="buy-btn">
+          Köp
+        </button>
       </div>
-      <button onClick={deleteChekoutList} className="buy-btn">
-        Köp
-      </button>
     </section>
   );
 };

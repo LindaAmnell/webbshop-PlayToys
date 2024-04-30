@@ -1,0 +1,42 @@
+.login-section {
+  display: grid;
+  place-items: center;
+  font-family: "Neucha", cursive;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.login-div {
+  display: grid;
+  place-items: center;
+  padding: 2em;
+  background-color: #d2e8f8;
+  width: 20em;
+  margin-top: 1em;
+  border-radius: 2em;
+  height: 15em;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form > input {
+  border-radius: 0.7em;
+  padding: 0.6em;
+}
+.login-btn {
+  background-color: #b1d8ee;
+  border-radius: 2em;
+  border: 1px solid #5ba9d6;
+  transition: background-color 0.3s;
+  padding: 0.6em 1.2em;
+  font-family: "Neucha", cursive;
+  font-weight: 500;
+  font-style: normal;
+  margin-top: 1em;
+}
+.login-btn:hover {
+  cursor: pointer;
+  background-color: #5ba9d6;
+}

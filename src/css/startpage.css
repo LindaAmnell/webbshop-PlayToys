@@ -1,6 +1,10 @@
-.img-start-section {
+main {
   display: grid;
   place-items: center;
+}
+.img-start-section {
+  /* display: grid;
+  place-items: center; */
   /* display: flex;
   flex-direction: column; */
   font-family: "Indie Flower", cursive;
@@ -34,6 +38,7 @@ h3 {
   border-radius: 1em;
   text-align: center;
   margin-top: 2em;
+  width: 8em;
 }
 .link-toys {
   text-decoration: none;

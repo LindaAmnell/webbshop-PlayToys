@@ -1,0 +1,46 @@
+.add-toy-div {
+  display: grid;
+  place-items: center;
+  font-family: "Neucha", cursive;
+  font-weight: 500;
+  font-style: normal;
+}
+.add-toy-section {
+  display: grid;
+  place-items: center;
+  gap: 0.5em;
+  background-color: #d2e8f8;
+  padding: 2em 1.5em 2em 1.5em;
+  border-radius: 2em;
+  min-width: 14em;
+  margin: 1em;
+}
+.toys-section {
+  padding: 1em;
+  max-width: 10em;
+}
+.add-toy {
+  display: flex;
+  flex-direction: column;
+}
+.add-toy > input {
+  border-radius: 0.7em;
+  padding: 0.6em;
+}
+.back-arrow {
+  width: 30px;
+}
+.close-btn {
+  background-color: #b1d8ee;
+  border-radius: 2em;
+  border: 1px solid #5ba9d6;
+  transition: background-color 0.3s;
+  padding: 0.6em 1.2em;
+  font-family: "Neucha", cursive;
+  font-weight: 500;
+  font-style: normal;
+}
+.close-btn:hover {
+  cursor: pointer;
+  background-color: #5ba9d6;
+}

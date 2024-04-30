@@ -14,10 +14,6 @@ const ToysList = () => {
       countTotalCheckout: state.countTotalCheckout,
     }));
 
-  //   const handeleGetToys = async () => {
-  //     setToys(await getToys());
-  //   };
-
   useEffect(() => {
     const fetchToys = async () => {
       const fetchedToys = await getToys();
@@ -27,7 +23,7 @@ const ToysList = () => {
   }, []);
 
   return (
-    <main className="toys-meny">
+    <main className="toys-main">
       <NavLink to="/Chekout">
         <img
           onClick={countTotalCheckout}
@@ -37,20 +33,22 @@ const ToysList = () => {
         />
       </NavLink>
       <h2>Leksaker</h2>
+      <div className="toys-meny">
+        {toys.map((t, item) => (
+          <section className="toys-section" key={t.key}>
+            <img className="toys-img" src={t.img} alt="bild" />
+            <h4 className="toys-name">{t.name}</h4>
+            <div className="toys-info">
+              <p className="toys-price">{t.price} kr</p>
+              <button onClick={() => addToyToCheckout(t)} className="add-btn">
+                Lägg till
+              </button>
+            </div>
+          </section>
+        ))}
+      </div>
 
       {/* <button>gettoys</button> */}
-      {toys.map((t, item) => (
-        <section className="toys-section" key={t.key}>
-          <img className="toys-img" src={t.img} alt="bild" />
-          <h4 className="toys-name">{t.name}</h4>
-          <div className="toys-info">
-            <p className="toys-price">{t.price} kr</p>
-            <button onClick={() => addToyToCheckout(t)} className="add-btn">
-              Lägg till
-            </button>
-          </div>
-        </section>
-      ))}
     </main>
   );
 };

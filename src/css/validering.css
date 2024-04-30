@@ -1,0 +1,11 @@
+.error {
+  margin: 0;
+  color: rgb(220, 24, 24);
+}
+.errors {
+  margin: 0;
+}
+.shown {
+  margin: 0;
+  visibility: hidden;
+}

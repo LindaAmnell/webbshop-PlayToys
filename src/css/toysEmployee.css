@@ -1,36 +1,60 @@
 .employe-toys-section {
   display: grid;
   place-items: center;
+  font-family: "Neucha", cursive;
+  font-weight: 500;
+  font-style: normal;
 }
 .toy-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
-.add-toy-section {
-  display: grid;
-  place-items: center;
-  gap: 0.5em;
+.add-toy-to-list {
   background-color: #d2e8f8;
-  padding: 1em;
   border-radius: 2em;
-  min-width: 14em;
-  margin: 1em;
-}
-.toys-section {
+  border: 1px solid #5ba9d6;
+  transition: background-color 0.3s;
+  font-size: 15px;
   padding: 1em;
-  max-width: 10em;
+  margin: 1em 0 2em 0;
+  font-family: "Neucha", cursive;
+  font-weight: 500;
+  font-style: normal;
 }
-.add-toy {
-  display: flex;
-  flex-direction: column;
+.add-toy-to-list:hover {
+  cursor: pointer;
+  background-color: #5ba9d6;
 }
-.add-toy > input {
-  border-radius: 1em;
-}
-.back-arrow {
-  width: 30px;
-}
-.close-btn {
+
+.deletetoy-btn {
   border: none;
   background-color: transparent;
+}
+.changetoy-btn {
+  border: none;
+  background-color: transparent;
+}
+@media (max-width: 1200px) {
+  .toy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 900px) {
+  .toy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 590px) {
+  .toy-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+@media (min-width: 1600px) {
+  .toy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
 }

@@ -1,10 +1,6 @@
-.toys-meny {
+.toys-main {
   display: grid;
   place-items: center;
-  grid-template-columns: 1fr;
-  /* font-family: "Indie Flower", cursive;
-  font-weight: 400;
-  font-style: normal; */
 }
 h2 {
   font-family: "Indie Flower", cursive;
@@ -19,7 +15,6 @@ h2 {
 }
 .toys-section {
   background-color: #ffffff;
-  /* border: 1px solid #b1d8ee; */
   border-radius: 2em;
   margin: 1em;
   padding: 1em 0;
@@ -52,7 +47,6 @@ h2 {
   font-style: normal;
 }
 .add-btn {
-  height: 2em;
   background-color: #b1d8ee;
   border-radius: 2em;
   border: 1px solid #5ba9d6;
@@ -60,9 +54,36 @@ h2 {
   font-weight: 500;
   font-style: normal;
   transition: background-color 0.3s;
-  padding: 0 0.7em;
+  padding: 0.6em 1.2em;
 }
 .add-btn:hover {
   cursor: pointer;
   background-color: #5ba9d6;
+}
+
+@media (min-width: 600px) {
+  .toys-meny {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 900px) {
+  .toys-meny {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .toys-meny {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1600px) {
+  .toys-meny {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
 }
