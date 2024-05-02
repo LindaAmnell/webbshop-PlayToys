@@ -18,9 +18,11 @@ h3 {
 }
 .type-toy-div {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 0.3em;
   margin-top: 0.5em;
+  justify-content: center;
 }
 .type-btn {
   font-family: "Indie Flower", cursive;
@@ -28,10 +30,10 @@ h3 {
   font-style: normal;
   background-color: #b1d8ee;
   padding: 0.5em;
-  border: solid 1px #1d303d;
+  border: none;
   border-radius: 0.5em;
   text-align: center;
-  width: 10em;
+  width: 7em;
   box-shadow: 0px 7px 3px rgba(1, 1, 3, 0.2);
   font-size: 20px;
 }
@@ -40,8 +42,12 @@ h3 {
   background-color: #5ba9d6;
 }
 
-@media (min-width: 623px) {
+/* @media (min-width: 825px) {
   .type-toy-div {
     flex-direction: row;
+    flex-wrap: wrap;
   }
 }
+@media (min-width: 623px) {
+
+} */

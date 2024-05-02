@@ -17,7 +17,7 @@ const router = createHashRouter([
       },
 
       {
-        path: "/Chekout",
+        path: "/Checkout",
         element: <CheckoutPage />,
       },
       {

@@ -49,9 +49,15 @@ const CheckoutPage = () => {
                 <img className="checkout-img" src={item.img} alt="" />{" "}
               </div>
               <p>{item.price}kr</p>{" "}
-              <button onClick={() => deleteFromCheckout(item.key)}>-</button>{" "}
+              <button
+                className="minus-btn"
+                onClick={() => deleteFromCheckout(item.key)}>
+                -
+              </button>{" "}
               <p>{item.quantity}</p>
-              <button onClick={() => handelPlusOne(item)}>+</button>
+              <button className="plus-btn" onClick={() => handelPlusOne(item)}>
+                +
+              </button>
             </div>
           </div>
         ))}

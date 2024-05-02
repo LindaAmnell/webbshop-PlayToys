@@ -2,7 +2,8 @@ import { getToys, deleteToy } from "../data/crud.js";
 import AddToy from "./AddToy.jsx";
 import EditToy from "./EditToy.jsx";
 import { useStore } from "../data/store.js";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const ToysEmployee = (toy) => {
   const [showAddToy, setShowAddToy] = useState(false);
@@ -35,17 +36,11 @@ const ToysEmployee = (toy) => {
   const handleCloseEditToy = () => {
     setShowEditToy(false);
   };
-
-  //   useEffect(() => {
-  //     const fetchToys = async () => {
-  //       const fetchedToys = await getToys();
-  //       setToys(fetchedToys);
-  //     };
-  //     fetchToys();
-  //   }, []);
-
   return (
     <main className="employe-toys-section">
+      <NavLink to="/">
+        <button className="sign-out-btn">Logga ut</button>
+      </NavLink>
       <div className="add-toy-div">
         {showAddToy && (
           <AddToy
@@ -74,7 +69,7 @@ const ToysEmployee = (toy) => {
               <button
                 className="deletetoy-btn"
                 onClick={() => handleDeleteToy(t.key)}>
-                🗑️
+                Tabort
               </button>
               <button
                 className="changetoy-btn"

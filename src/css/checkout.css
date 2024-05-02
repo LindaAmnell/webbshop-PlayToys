@@ -43,7 +43,6 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  /* gap: 0.5em; */
 }
 .checkout-img {
   height: 60px;
@@ -52,19 +51,25 @@ h2 {
   background-color: white;
   border: none;
   padding: 0em;
+  cursor: pointer;
 }
 .img-checkout-div {
   width: 94px;
   justify-content: flex-start;
 }
+.plus-btn {
+  cursor: pointer;
+}
+.minus-btn {
+  cursor: pointer;
+}
 .buy-btn {
   width: 5em;
   align-self: center;
   margin-top: 1em;
-  /* height: 2em; */
   background-color: #75c5f4;
-  border-radius: 2em;
-  border: 1px solid #5ba9d6;
+  border-radius: 0.7em;
+  border: none;
   font-family: "Neucha", cursive;
   font-weight: 500;
   font-style: normal;

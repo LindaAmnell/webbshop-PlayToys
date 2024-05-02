@@ -3,16 +3,16 @@ const handleValidationToy = (event, errors, setErrors) => {
   let error = "";
   switch (name) {
     case "name":
-      error = value.trim() === "" ? "Namnet är obligatoriskt" : "";
+      error = value.trim() === "" ? "Skriv in ett namn i fältet" : "";
       break;
     case "img":
-      error = value.trim() === "" ? "Bildlänk är obligatorisk" : "";
+      error = value.trim() === "" ? "Lägg in en bildlänk i fältet" : "";
       break;
     case "price":
-      error = value.trim() === "" ? "Kräver siffer format" : "";
+      error = value.trim() === "" ? "Skriv i siffror" : "";
       break;
     case "type":
-      error = value.trim() === "" ? "Typ av leksak är obligatorisk" : "";
+      error = value.trim() === "" ? "Skriv in typ av produkt" : "";
       break;
     default:
       break;

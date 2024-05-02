@@ -2,7 +2,7 @@ import { Outlet, NavLink } from "react-router-dom";
 import palm from "../img/loggan.png";
 import palm2 from "../img/loggan.1.png";
 
-import login from "../img/login.icon.png";
+// import login from "../img/login.icon.png";
 import "../css/startpage.css";
 import "../css/toyslist.css";
 import "../css/checkout.css";
@@ -22,12 +22,12 @@ const Root = () => (
     </header>
 
     <Outlet />
-    <footer>
+    {/* <footer>
       <NavLink to="/toLogin">
         {" "}
         <img className="login-icon" src={login} alt="" />{" "}
       </NavLink>
-    </footer>
+    </footer> */}
   </>
 );
 

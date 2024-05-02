@@ -1,12 +1,13 @@
 import { getToys } from "../data/crud.js";
 import { useStore } from "../data/store.js";
 import cart from "../img/cart.png";
+import login from "../img/login.icon.png";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import searchIcon from "../img/Search.png";
 
-const ToysList = () => {
-  const [isSearchVisible, setIsSearchVisible] = useState(false);
+const ToysList = ({ toyTypeFilter }) => {
+  const [messages, setMessages] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
   const { sortToys, toys, setToys, addToyToCheckout, countTotalCheckout } =
     useStore((state) => ({
@@ -16,7 +17,6 @@ const ToysList = () => {
       countTotalCheckout: state.countTotalCheckout,
       sortToys: state.sortToys,
     }));
-
   useEffect(() => {
     const fetchToys = async () => {
       const fetchedToys = await getToys();
@@ -25,20 +25,31 @@ const ToysList = () => {
     fetchToys();
   }, []);
 
-  // söker på leksaker efter namn och typ
   const filteredToys = toys.filter(
     (toy) =>
       toy.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       toy.type.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
   //gör så att leksakerna sorteras
   const handleSortToy = (event) => {
     sortToys(event.target.value);
   };
+  // skriver ut ett meddelande att du har lag till leksaken i kundvagnen
+  const handleAddToyToCheckout = (t) => {
+    addToyToCheckout(t);
+    setMessages((prevMessages) => ({
+      ...prevMessages,
+      [t.key]: "Tillagd i varukorgen",
+    }));
+    setTimeout(() => {
+      setMessages((prevMessages) => ({ ...prevMessages, [t.key]: "" }));
+    }, 1500);
+  };
 
   return (
-    <main className="toys-main">
-      <NavLink to="/Chekout">
+    <section className="toys-main">
+      <NavLink to="/Checkout">
         <img
           onClick={countTotalCheckout}
           className="cart-icon"
@@ -48,12 +59,7 @@ const ToysList = () => {
       </NavLink>
       <div className="search-dropdown-section">
         <div className="search-section">
-          <img
-            onClick={() => setIsSearchVisible(!isSearchVisible)}
-            className="search-icon"
-            src={searchIcon}
-            alt="sök-icon"
-          />
+          <img className="search-icon" src={searchIcon} alt="sök-icon" />
 
           <input
             type="text"
@@ -72,23 +78,33 @@ const ToysList = () => {
           </select>
         </div>
       </div>
-
       <h2>Leksaker</h2>
       <div className="toys-meny">
         {filteredToys.map((t, item) => (
           <section className="toys-section" key={t.key}>
             <img className="toys-img" src={t.img} alt="bild" />
             <h4 className="toys-name">{t.name}</h4>
+            {messages[t.key] && (
+              <div className="added-messages">{messages[t.key]}</div>
+            )}
             <div className="toys-info">
               <p className="toys-price">{t.price} kr</p>
-              <button onClick={() => addToyToCheckout(t)} className="add-btn">
+              <button
+                onClick={() => handleAddToyToCheckout(t)}
+                className="add-btn">
                 Lägg till
               </button>
             </div>
           </section>
         ))}
       </div>
-    </main>
+      <footer>
+        <NavLink to="/toLogin">
+          {" "}
+          <img className="login-icon" src={login} alt="" />
+        </NavLink>
+      </footer>
+    </section>
   );
 };
 export default ToysList;

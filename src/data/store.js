@@ -5,6 +5,7 @@ const useStore = create((set) => ({
   setToys: (newToys) => set({ toys: newToys }),
   checkoutList: [],
   checkoutTotal: 0,
+  toyTypeFilter: "all",
 
   // lägger till i varukorgen
   addToyToCheckout: (item) =>
@@ -91,5 +92,9 @@ const useStore = create((set) => ({
       }
       return { toys: sortedToys };
     }),
+  //   sortToysByType: (toyType) =>
+  //     set((state) => ({
+  //       toyTypeFilter: toyType,
+  //     })),
 }));
 export { useStore };

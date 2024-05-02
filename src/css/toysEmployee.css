@@ -5,17 +5,35 @@
   font-weight: 500;
   font-style: normal;
 }
+.sign-out-btn {
+  background-color: #d2e8f8;
+  border-radius: 1em;
+  border: 1px solid #5ba9d6;
+  font-family: "Neucha", cursive;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 17px;
+  padding: 0.5em 1em 0.5em 1em;
+  transition: background-color 0.3s;
+  position: absolute;
+  top: 19%;
+  right: 2%;
+}
+.sign-out-btn:hover {
+  cursor: pointer;
+  background-color: #5ba9d6;
+}
 .toy-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 .add-toy-to-list {
   background-color: #d2e8f8;
-  border-radius: 2em;
+  border-radius: 1em;
   border: 1px solid #5ba9d6;
   transition: background-color 0.3s;
-  font-size: 15px;
-  padding: 1em;
+  font-size: 17px;
+  padding: 0.7em;
   margin: 1em 0 2em 0;
   font-family: "Neucha", cursive;
   font-weight: 500;
@@ -27,17 +45,24 @@
 }
 
 .deletetoy-btn {
-  border: none;
-  background-color: transparent;
+  background-color: #d2e8f8;
+  cursor: pointer;
+  border-radius: 0.5em;
+  border: 1px solid #5ba9d6;
+  padding: 0.3em;
 }
 .changetoy-btn {
   border: none;
   background-color: transparent;
+  cursor: pointer;
 }
 @media (max-width: 1200px) {
   .toy-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+  }
+  .sign-out-btn {
+    top: 16%;
   }
 }
 @media (max-width: 900px) {
@@ -46,10 +71,16 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+@media (max-width: 700px) {
+}
+
 @media (max-width: 590px) {
   .toy-grid {
     display: grid;
     grid-template-columns: 1fr;
+  }
+  .sign-out-btn {
+    top: 14%;
   }
 }
 @media (min-width: 1600px) {
