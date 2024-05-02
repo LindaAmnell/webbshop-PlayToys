@@ -4,7 +4,6 @@ import cart from "../img/cart.png";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import searchIcon from "../img/Search.png";
-import Footer from "./Footer.jsx";
 
 const ToysList = () => {
   const [isSearchVisible, setIsSearchVisible] = useState(false);
@@ -92,6 +91,5 @@ const ToysList = () => {
       </div>
     </main>
   );
-  <Footer />;
 };
 export default ToysList;
