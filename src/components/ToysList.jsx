@@ -54,14 +54,13 @@ const ToysList = () => {
             src={searchIcon}
             alt="sök-icon"
           />
-          {isSearchVisible && (
-            <input
-              type="text"
-              placeholder="Sök leksaker"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          )}
+
+          <input
+            type="text"
+            placeholder="Sök leksaker"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
 
         <div className="dropdown-section">
