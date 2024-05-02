@@ -4,7 +4,7 @@ const StartPage = () => {
   return (
     <main>
       <section className="start-section">
-        <h2>Katigorier</h2>
+        <h2>Kategorier</h2>
         <div className="type-toy-div">
           <button className="type-btn">Hinkset</button>
           <button className="type-btn">Pool</button>
