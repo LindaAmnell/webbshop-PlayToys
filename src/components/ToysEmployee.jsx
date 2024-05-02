@@ -12,40 +12,37 @@ const ToysEmployee = (toy) => {
     toys: state.toys,
     setToys: state.setToys,
   }));
-
+  // tarbort leksak från listan
   const handleDeleteToy = async (key) => {
-    if (!key) {
-      return;
-    }
     await deleteToy(key);
     const toysFromDb = await getToys();
     setToys(toysFromDb);
   };
-
+  // gör så att man kan se addToy för att lägga till leksak
   const handleShowAddToy = () => {
     setShowAddToy(!showAddToy);
   };
-
+  // gör så att man gömmer addToy
   const handleAddToySave = () => {
     setShowAddToy(false);
   };
-
+  // gör så man ser eddittoy ( ändra leksak)
   const handleEditToy = (toy) => {
     setSelectedToy(toy);
     setShowEditToy(true);
   };
-
+  // gör så man gömmer eddittoy
   const handleCloseEditToy = () => {
     setShowEditToy(false);
   };
 
-  useEffect(() => {
-    const fetchToys = async () => {
-      const fetchedToys = await getToys();
-      setToys(fetchedToys);
-    };
-    fetchToys();
-  }, []);
+  //   useEffect(() => {
+  //     const fetchToys = async () => {
+  //       const fetchedToys = await getToys();
+  //       setToys(fetchedToys);
+  //     };
+  //     fetchToys();
+  //   }, []);
 
   return (
     <main className="employe-toys-section">

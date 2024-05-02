@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useStore } from "../data/store.js";
 import { handleValidationToy } from "../data/validering.js";
 import { addToy, getToys } from "../data/crud.js";
-// import close from "../img/cross.icon.png";
+
 const AddToy = ({ onAddSuccess, onClose }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState("");
@@ -17,6 +17,7 @@ const AddToy = ({ onAddSuccess, onClose }) => {
     img: "",
   });
 
+  // lägger till ny leksak
   const handelAddToy = async (event) => {
     event.preventDefault();
     setIsLoading(true);

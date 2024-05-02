@@ -20,6 +20,8 @@ const CheckoutPage = () => {
     countTotalCheckout: state.countTotalCheckout,
     deleteThatToyFromList: state.deleteThatToyFromList,
   }));
+
+  // lägger till antal på leksaken om man vill ha fler
   const handelPlusOne = (item) => {
     addToyToCheckout(item);
     countTotalCheckout();
@@ -27,7 +29,7 @@ const CheckoutPage = () => {
 
   return (
     <section className="checkout-section">
-      <NavLink to="/toymeny">
+      <NavLink to="/">
         <img className="arrow" src={arrow} alt="" />
       </NavLink>
       <h2 className="h2-cart">Din varukorg</h2>
@@ -58,7 +60,10 @@ const CheckoutPage = () => {
         ) : (
           <p className="total-price"> Totalsumma: {checkoutTotal} kr</p>
         )}
-        <button onClick={deleteChekoutList} className="buy-btn">
+        <button
+          style={{ display: checkoutTotal === 0 ? "none" : "block" }}
+          onClick={deleteChekoutList}
+          className="buy-btn">
           Köp
         </button>
       </div>

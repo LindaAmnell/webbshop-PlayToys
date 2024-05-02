@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const [user, setUser] = useState("");
@@ -7,9 +7,9 @@ const LogIn = () => {
   const [userError, setUserError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
-
   const error = "Vänligen fyll i användarnamn";
   const errorPass = "Vänligen fyll i lösenord";
+  // validerar användarnamn, vissar felmedelande om det är fel
   const validateUser = () => {
     if (!user) {
       setUserError(error);
@@ -17,7 +17,7 @@ const LogIn = () => {
       setUserError("");
     }
   };
-
+  // validerar lösenord, vissar felmedelande om det är fel
   const validatePassword = () => {
     if (!password) {
       setPasswordError(errorPass);
@@ -25,10 +25,11 @@ const LogIn = () => {
       setPasswordError("");
     }
   };
-
+  //kontrollera om användarnamn och lösenord matchar
   const checkLogin = () => {
     return user == "admin" && password == "password";
   };
+  //  kontrolerar inloggningsförsöket, validerar användarnamn/lösenord och navigerar sedan vidare om de är rätt.
   const handleLogIn = () => {
     validateUser();
     validatePassword();

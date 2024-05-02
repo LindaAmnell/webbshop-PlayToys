@@ -2,16 +2,19 @@ import { getToys } from "../data/crud.js";
 import { useStore } from "../data/store.js";
 import cart from "../img/cart.png";
 import { NavLink } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import searchIcon from "../img/Search.png";
 
 const ToysList = () => {
-  const { toys, setToys, addToyToCheckout, checkoutList, countTotalCheckout } =
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const { sortToys, toys, setToys, addToyToCheckout, countTotalCheckout } =
     useStore((state) => ({
       toys: state.toys,
       setToys: state.setToys,
       addToyToCheckout: state.addToyToCheckout,
-      checkoutList: state.checkoutList,
       countTotalCheckout: state.countTotalCheckout,
+      sortToys: state.sortToys,
     }));
 
   useEffect(() => {
@@ -21,6 +24,17 @@ const ToysList = () => {
     };
     fetchToys();
   }, []);
+
+  // söker på leksaker efter namn och typ
+  const filteredToys = toys.filter(
+    (toy) =>
+      toy.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      toy.type.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+  //gör så att leksakerna sorteras
+  const handleSortToy = (event) => {
+    sortToys(event.target.value);
+  };
 
   return (
     <main className="toys-main">
@@ -32,9 +46,37 @@ const ToysList = () => {
           alt="cartchekout"
         />
       </NavLink>
+      <div className="search-dropdown-section">
+        <div className="search-section">
+          <img
+            onClick={() => setIsSearchVisible(!isSearchVisible)}
+            className="search-icon"
+            src={searchIcon}
+            alt="sök-icon"
+          />
+          {isSearchVisible && (
+            <input
+              type="text"
+              placeholder="Sök leksaker"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          )}
+        </div>
+
+        <div className="dropdown-section">
+          <select onChange={handleSortToy}>
+            <option value="default">Sortera efter</option>
+            <option value="name-ascending">A-Ö</option>
+            <option value="price-rising">Pris stigande</option>
+            <option value="price-falling">Pris fallande</option>
+          </select>
+        </div>
+      </div>
+
       <h2>Leksaker</h2>
       <div className="toys-meny">
-        {toys.map((t, item) => (
+        {filteredToys.map((t, item) => (
           <section className="toys-section" key={t.key}>
             <img className="toys-img" src={t.img} alt="bild" />
             <h4 className="toys-name">{t.name}</h4>
@@ -47,8 +89,6 @@ const ToysList = () => {
           </section>
         ))}
       </div>
-
-      {/* <button>gettoys</button> */}
     </main>
   );
 };

@@ -6,6 +6,7 @@ const useStore = create((set) => ({
   checkoutList: [],
   checkoutTotal: 0,
 
+  // lägger till i varukorgen
   addToyToCheckout: (item) =>
     set((state) => {
       let found = false;
@@ -27,6 +28,7 @@ const useStore = create((set) => ({
       return { checkoutList: updatedList };
     }),
 
+  // tar bort leksaker
   deleteFromCheckout: (key) => {
     set((state) => {
       const updatedCheckoutList = state.checkoutList
@@ -43,7 +45,7 @@ const useStore = create((set) => ({
     });
     useStore.getState().countTotalCheckout();
   },
-
+  // räknar ut totalen av alla leksaker i varukorgen
   countTotalCheckout: () => {
     set((state) => ({
       checkoutTotal: state.checkoutList.reduce(
@@ -52,12 +54,13 @@ const useStore = create((set) => ({
       ),
     }));
   },
+  // Tömmer chekputlist när man klickar på köp
   deleteChekoutList: () =>
     set((state) => ({
       checkoutList: [],
       checkoutTotal: 0,
     })),
-
+  // tarbort alla av samma sorts leksak från checkoutlist
   deleteThatToyFromList: (item, key) => {
     set((state) => {
       const updatedCheckoutList = state.checkoutList.filter(
@@ -67,6 +70,26 @@ const useStore = create((set) => ({
     });
     useStore.getState().countTotalCheckout();
   },
-}));
 
+  // sorterar leksakerna
+  sortToys: (sortType) =>
+    set((state) => {
+      let sortedToys = [...state.toys];
+      switch (sortType) {
+        case "name-ascending":
+          sortedToys.sort((a, b) => a.name.localeCompare(b.name));
+          break;
+        case "price-rising":
+          sortedToys.sort((a, b) => a.price - b.price);
+          break;
+        case "price-falling":
+          sortedToys.sort((a, b) => b.price - a.price);
+          break;
+
+        default:
+          break;
+      }
+      return { toys: sortedToys };
+    }),
+}));
 export { useStore };
