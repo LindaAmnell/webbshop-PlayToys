@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import searchIcon from "../img/Search.png";
 
-const ToysList = ({ toyTypeFilter }) => {
+const ToysList = () => {
   const [messages, setMessages] = useState({});
   const [searchTerm, setSearchTerm] = useState("");
   const { sortToys, toys, setToys, addToyToCheckout, countTotalCheckout } =
@@ -25,6 +25,7 @@ const ToysList = ({ toyTypeFilter }) => {
     fetchToys();
   }, []);
 
+  // filtrerar listan när man söker på leksaker, som jag sedan mapar ut
   const filteredToys = toys.filter(
     (toy) =>
       toy.name.toLowerCase().includes(searchTerm.toLowerCase()) ||

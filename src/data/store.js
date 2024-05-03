@@ -92,9 +92,18 @@ const useStore = create((set) => ({
       }
       return { toys: sortedToys };
     }),
-  //   sortToysByType: (toyType) =>
-  //     set((state) => ({
-  //       toyTypeFilter: toyType,
-  //     })),
+
+  // sorterar typ av leksaker
+  selectToysCategory: (type) =>
+    set((state) => {
+      const sortedToys = [...state.toys].sort((a, b) => {
+        if (a.type === type && b.type !== type) return -1;
+        if (a.type !== type && b.type === type) return 1;
+
+        return 0;
+      });
+
+      return { toys: sortedToys };
+    }),
 }));
 export { useStore };

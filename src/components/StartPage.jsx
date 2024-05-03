@@ -1,23 +1,31 @@
 import ToysList from "./ToysList";
-// import { useStore } from "../data/store";
+import { useStore } from "../data/store";
 
 const StartPage = () => {
-  //   const sortToysByType = useStore((state) => state.sortToysByType);
+  const selectToysCategory = useStore((state) => state.selectToysCategory);
 
-  //   const handleSortByType = (toyType) => {
-  //     sortToysByType(toyType);
-  //   };
-  //   const toyTypeFilter = useStore((state) => state.toyTypeFilter);
+  const handleSortByType = (type) => {
+    selectToysCategory(type);
+  };
 
   return (
     <main>
       <section className="start-section">
         <h2>Kategorier</h2>
         <div className="type-toy-div">
-          <button className="type-btn">Hinkset</button>
-          <button className="type-btn">Pool</button>
-          <button className="type-btn">Sluss</button>
-          <button className="type-btn">Alla leksaker</button>
+          <button
+            className="type-btn"
+            onClick={() => handleSortByType("hinkset")}>
+            Hinkset
+          </button>
+          <button className="type-btn" onClick={() => handleSortByType("pool")}>
+            Pool
+          </button>
+          <button
+            className="type-btn"
+            onClick={() => handleSortByType("sluss")}>
+            Sluss
+          </button>
         </div>
       </section>
       <ToysList />

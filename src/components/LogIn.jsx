@@ -6,6 +6,7 @@ const LogIn = () => {
   const [password, setPassword] = useState("");
   const [userError, setUserError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
   const error = "Vänligen fyll i användarnamn";
   const errorPass = "Vänligen fyll i lösenord";
@@ -37,6 +38,7 @@ const LogIn = () => {
       if (checkLogin()) {
         navigate("/toyEmployee");
       } else {
+        setErrorMessage("Fel användarnamn eller lösenord.");
       }
     }
   };
@@ -68,6 +70,7 @@ const LogIn = () => {
             {passwordError}
           </p>
         </div>
+        <p className="error-user">{errorMessage} </p>
 
         <button className="login-btn" onClick={handleLogIn}>
           Logga in
