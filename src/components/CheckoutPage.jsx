@@ -1,8 +1,13 @@
 import { useStore } from "../data/store.js";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import arrow from "../img/back.png";
+import PopUp from "./PopUp.jsx";
 
 const CheckoutPage = () => {
+  const [showPopUp, setShowPopUp] = useState(false);
+  const navigate = useNavigate();
   const {
     checkoutList,
     deleteFromCheckout,
@@ -25,6 +30,14 @@ const CheckoutPage = () => {
   const handelPlusOne = (item) => {
     addToyToCheckout(item);
     countTotalCheckout();
+  };
+  const handleBuyButtonClick = () => {
+    setShowPopUp(true);
+    setTimeout(() => {
+      setShowPopUp(false);
+      deleteChekoutList();
+      navigate("/");
+    }, 2000);
   };
 
   return (
@@ -68,10 +81,11 @@ const CheckoutPage = () => {
         )}
         <button
           style={{ display: checkoutTotal === 0 ? "none" : "block" }}
-          onClick={deleteChekoutList}
-          className="buy-btn">
+          className="buy-btn"
+          onClick={handleBuyButtonClick}>
           Köp
         </button>
+        {showPopUp && <PopUp />}
       </div>
     </section>
   );

@@ -8,7 +8,7 @@
 .arrow {
   width: 40px;
   position: absolute;
-  top: 11.5%;
+  top: 16.5%;
   left: 8%;
 }
 h2 {
@@ -80,6 +80,15 @@ h2 {
   cursor: pointer;
   background-color: #5ba9d6;
 }
+.popup {
+  position: fixed;
+  background-color: #75c5f4;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1em 2em;
+  box-shadow: 7px 7px 20px 8px #020202;
+}
 .total-price {
   display: grid;
   place-items: center;
@@ -91,26 +100,24 @@ h2 {
 }
 @media (min-width: 600px) {
   .arrow {
-    top: 12%;
+    top: 18%;
     left: 18%;
   }
 }
 
 @media (min-width: 850px) {
   .arrow {
-    top: 13%;
+    top: 20%;
     left: 25%;
   }
 }
 @media (min-width: 1000px) {
   .arrow {
-    top: 16%;
     left: 30%;
   }
 }
 @media (min-width: 1400px) {
   .arrow {
-    top: 18%;
     left: 37%;
   }
 }

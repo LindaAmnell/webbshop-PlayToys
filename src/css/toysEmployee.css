@@ -16,7 +16,7 @@
   padding: 0.5em 1em 0.5em 1em;
   transition: background-color 0.3s;
   position: absolute;
-  top: 19%;
+  top: 20%;
   right: 2%;
 }
 .sign-out-btn:hover {
@@ -61,9 +61,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
-  .sign-out-btn {
-    top: 16%;
-  }
 }
 @media (max-width: 900px) {
   .toy-grid {
@@ -78,9 +75,6 @@
   .toy-grid {
     display: grid;
     grid-template-columns: 1fr;
-  }
-  .sign-out-btn {
-    top: 14%;
   }
 }
 @media (min-width: 1600px) {

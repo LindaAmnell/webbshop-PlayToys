@@ -10,7 +10,7 @@ h2 {
 .cart-icon {
   width: 40px;
   position: absolute;
-  top: 11.5%;
+  top: 15.5%;
   right: 3%;
 }
 
@@ -95,10 +95,10 @@ h2 {
   cursor: pointer;
   background-color: #5ba9d6;
 }
-@media (min-width: 400px) {
+@media (min-width: 410px) {
   .cart-icon {
     width: 50px;
-    top: 3%;
+    top: 5%;
     right: 3%;
   }
 }
