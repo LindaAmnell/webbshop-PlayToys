@@ -22,12 +22,6 @@ const Root = () => (
     </header>
 
     <Outlet />
-    {/* <footer>
-      <NavLink to="/toLogin">
-        {" "}
-        <img className="login-icon" src={login} alt="" />{" "}
-      </NavLink>
-    </footer> */}
   </>
 );
 

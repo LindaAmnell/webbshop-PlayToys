@@ -41,13 +41,3 @@ h3 {
   cursor: pointer;
   background-color: #5ba9d6;
 }
-
-/* @media (min-width: 825px) {
-  .type-toy-div {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-}
-@media (min-width: 623px) {
-
-} */
