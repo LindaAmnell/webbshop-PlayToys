@@ -10,3 +10,7 @@ Admin Functionality: Admin users can log in to add, remove, and modify products 
 Smart Search and Sorting: Customers can search for products by name or category, and sort them by price or name.
 
 Shopping Cart: Customers can add products to the cart, view their total price, and modify quantities.
+
+
+Github pages: 
+https://lindaamnell.github.io/webbshop-PlayToys/
